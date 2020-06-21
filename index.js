@@ -69,7 +69,11 @@ const GPSState: GPSStateType = {
 		GPSStateNative.openSettings(true)
 	},
 	openLocationSettings: () => {
-		GPSStateNative.openSettings(false)
+		if(isIOS){
+			GPSStateNative.openSettings();
+		}else{
+			GPSStateNative.openSettings(false);
+		}
 	},
 	isMarshmallowOrAbove: () => {
 		return _isMarshmallowOrAbove
